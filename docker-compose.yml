@@ -1,0 +1,53 @@
+version: '3.7'
+services:
+  redis:
+    image: redis
+    ports:
+      - "63795:6379"
+    networks:
+      default:
+        ipv4_address: 172.10.0.4
+  db:
+    image: mysql:8.0.29
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: secret
+      MYSQL_USER: default
+      MYSQL_DATABASE: default
+    networks:
+      default:
+        ipv4_address: 172.10.0.3
+    volumes:
+      - ./storage/mysql:/var/lib/mysql
+  nginx:
+    build:
+      context: ./docker/nginx
+    environment:
+      TZ: "Europe/Moscow"
+    volumes:
+      - ./app:/app
+    depends_on:
+      - php-fpm
+    networks:
+      default:
+        ipv4_address: 172.10.0.5
+  php-fpm:
+    build:
+      context: ./docker/php-fpm
+    working_dir: /app
+    volumes:
+      - ./app:/app
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    environment:
+      TZ: "Europe/Moscow"
+    networks:
+      default:
+        ipv4_address: 172.10.0.2
+        aliases:
+          - app
+networks:
+  default:
+      name: blog_net
+      external: true
+
