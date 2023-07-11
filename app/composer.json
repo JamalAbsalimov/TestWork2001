@@ -14,10 +14,12 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^2.11",
         "lorisleiva/laravel-actions": "^2.6",
-        "nwidart/laravel-modules": "^10.0",
-        "spatie/laravel-permission": "^5.10"
+        "rappasoft/laravel-livewire-tables": "^2.14",
+        "spatie/laravel-permission": "^5.10",
+        "tymon/jwt-auth": "^2.0"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.13",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
