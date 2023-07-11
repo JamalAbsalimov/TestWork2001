@@ -1,0 +1,9 @@
+.badge-error {
+    color: rgb(163 48 48 / 1);
+    background-color: rgb(255 221 221 / 1);
+}
+
+.badge-success {
+    background-color: rgb(224 255 226 / 1);
+    color: rgb(48 163 77 / 1);
+}
