@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Base;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ErrorResource extends ApiResource
 {
@@ -22,7 +23,7 @@ class ErrorResource extends ApiResource
     public function toArray(Request $request): array
     {
         return [
-            'message' => $this->message,
+            'message' => Str::of($this->message)->replace('.', '')->upper()->toString(),
             'errors' => $this->errors
         ];
     }
