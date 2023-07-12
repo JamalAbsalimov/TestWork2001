@@ -4,12 +4,18 @@ namespace app\Http\Livewire\Author;
 
 use App\Models\Author;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 
 class AuthorTable extends DataTableComponent
 {
     protected $model = User::class;
+
+    public function builder(): Builder
+    {
+        return User::role('author','api');
+    }
 
     public function configure(): void
     {
