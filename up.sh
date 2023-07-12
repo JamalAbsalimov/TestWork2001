@@ -29,6 +29,8 @@ docker network create --subnet 172.10.0.0/16 blog_net
 make build
 
 docker compose exec php-fpm composer install
+docker compose exec php-fpm composer run-script post-root-package-install
+docker compose exec php-fpm composer run-script post-create-project-cmd
 docker compose exec php-fpm php artisan migrate
 docker compose exec php-fpm npm install
 docker compose exec php-fpm npm run build
