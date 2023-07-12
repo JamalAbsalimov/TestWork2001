@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "Adding hosts"
-HOSTS=('172.10.0.5 blog.local 172.10.0.5 api.blog.local')
+HOSTS=('172.10.0.5 blog.local')
 
 if [[ -e "/c/Windows/System32/drivers/etc/hosts" ]]; then
   echo 'Your OS is Windows (Git bash)'
