@@ -1,0 +1,516 @@
+{
+	"info": {
+		"_postman_id": "8b9be585-80c9-4bc2-b389-118e73eaa595",
+		"name": "ABELOHOST_TEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6354831"
+	},
+	"item": [
+		{
+			"name": "COMMON_ERRORS",
+			"item": [
+				{
+					"name": "SERVER_VALIDATION_ERROR",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "SERVER_VALIDATION_ERROR",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"message\": \"VALIDATION_ERROR\",\n        \"errors\": {\n            \"title\": [\n                \"Поле title обязательно для заполнения.\"\n            ]\n        }\n    },\n    \"success\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "UNAUTHENTICATED",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "UNAUTHENTICATED",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"message\": \"UNAUTHENTICATED\",\n        \"errors\": []\n    },\n    \"success\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "AUTHORIZATION_ERROR",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "AUTHORIZATION_ERROR",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"message\": \"THIS ACTION IS UNAUTHORIZED\",\n        \"errors\": []\n    },\n    \"success\": false\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "AUTH",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.W10.Sf36q7Xgb8C8tOOKK8VymboUHRlsl6nSUjmug3TySeaF2IsQ8Gy-RHpnBasAJBQezNiMOzrmIDa0MLcoP1i33yy9KjuiNQl2MSAOVKRAkzgK7Gly4uXC75Lh9qzy_27nYoRik2qioZhOmYUc8uHBXvxF69A8VOtDVIyZ7XcgAusXYBQ4deJFwMnDC7tMbt9bVsLm8G30equxXJYSynggCFwbT2HSss0w1Asa3sCgiaA64ji39Qv2gE1SebpSQBTnvXImVYleAb2OQtXNTvha-zCOL2yBxC4fXBjo2Zgy1rXSssrLMmnPrGkZh2_Tos275lFKrEoQHbt60DYdMSbPHg",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "diana53@example.net",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://blog.local/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"blog",
+						"local"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.W10.Sf36q7Xgb8C8tOOKK8VymboUHRlsl6nSUjmug3TySeaF2IsQ8Gy-RHpnBasAJBQezNiMOzrmIDa0MLcoP1i33yy9KjuiNQl2MSAOVKRAkzgK7Gly4uXC75Lh9qzy_27nYoRik2qioZhOmYUc8uHBXvxF69A8VOtDVIyZ7XcgAusXYBQ4deJFwMnDC7tMbt9bVsLm8G30equxXJYSynggCFwbT2HSss0w1Asa3sCgiaA64ji39Qv2gE1SebpSQBTnvXImVYleAb2OQtXNTvha-zCOL2yBxC4fXBjo2Zgy1rXSssrLMmnPrGkZh2_Tos275lFKrEoQHbt60DYdMSbPHg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "diana53@example.net",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://blog.local/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"blog",
+								"local"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYmxvZy5sb2NhbC9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTY4OTExMDYyNCwiZXhwIjoxNjg5MTE0MjI0LCJuYmYiOjE2ODkxMTA2MjQsImp0aSI6Ik5jZlppY2p1NEhHdGtKZTkiLCJzdWIiOiI1IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.eEhDHK3uTVLVXWREsGCJmgvvTJqM4NH9eoXFH6hrfW4\",\n        \"token_type\": \"bearer\",\n        \"expires_in\": 3600\n    },\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "POST_CREATE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "{{$randomLoremSentence}}",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "{{$randomLoremSentences}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://blog.local/api/posts",
+					"protocol": "http",
+					"host": [
+						"blog",
+						"local"
+					],
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "{{$randomLoremSentence}}",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "{{$randomLoremSentences}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://blog.local/api/posts",
+							"protocol": "http",
+							"host": [
+								"blog",
+								"local"
+							],
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 50,\n        \"title\": \"Consequatur dolore ut voluptatem soluta assumenda minima porro.\",\n        \"content\": \"Non architecto enim fugit sunt sed esse dolores unde. Ut qui et. Optio velit sapiente.\",\n        \"status\": \"NOT_ACCEPT\",\n        \"createdAt\": \"11.07.2023 21:14\"\n    },\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "UPDATE_POST",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "{{$randomLoremSentence}}",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "{{$randomLoremSentences}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://blog.local/api/posts/38",
+					"protocol": "http",
+					"host": [
+						"blog",
+						"local"
+					],
+					"path": [
+						"api",
+						"posts",
+						"38"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "{{$randomLoremSentence}}",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "{{$randomLoremSentences}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://blog.local/api/posts/23",
+							"protocol": "http",
+							"host": [
+								"blog",
+								"local"
+							],
+							"path": [
+								"api",
+								"posts",
+								"23"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 38,\n        \"title\": \"Ad autem velit consequuntur laboriosam itaque fugiat ut.\",\n        \"content\": \"Amet tenetur id quisquam rerum atque velit. Consectetur molestias enim nemo qui vitae maxime quo unde.\",\n        \"status\": \"NOT_ACCEPT\",\n        \"createdAt\": \"11.07.2023 15:45\"\n    },\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "DELETE_POST",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://blog.local/api/posts/30",
+					"protocol": "http",
+					"host": [
+						"blog",
+						"local"
+					],
+					"path": [
+						"api",
+						"posts",
+						"30"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://blog.local/api/posts/30",
+							"protocol": "http",
+							"host": [
+								"blog",
+								"local"
+							],
+							"path": [
+								"api",
+								"posts",
+								"30"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				}
+			]
+		},
+		{
+			"name": "LOGOUT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://blog.local/api/auth/logout",
+					"protocol": "http",
+					"host": [
+						"blog",
+						"local"
+					],
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "LOGOUT",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://blog.local/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"blog",
+								"local"
+							],
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"message\": \"Successfully logged out\"\n    },\n    \"success\": true\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYmxvZy5sb2NhbC9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTY4OTEwOTk3MCwiZXhwIjoxNjg5MTEzNTcwLCJuYmYiOjE2ODkxMDk5NzAsImp0aSI6Ik5mZHhZa0Y1bVJjSlVJalIiLCJzdWIiOiI1IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9._wvAMw-r38OTpTKGyPfy0AujlnA_pgBslttASmK1G-o",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
